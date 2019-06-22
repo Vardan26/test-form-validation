@@ -1,0 +1,215 @@
+.body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: url("../img/banner.jpg") center, no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 0 15px;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+
+//CONTROLS
+.label {
+  &-check {
+    display: flex;
+    align-items: center;
+    &__wrap {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      margin-right: 5px;
+      input {
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        &:checked {
+          & + .label-check__wrap__span {
+            &:after {
+              left: auto;
+              right: 3px;
+              background: #fff;
+            }
+          }
+        }
+      }
+      &__span {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border: 1px solid #fff;
+        box-sizing: border-box;
+        border-radius: 12px;
+        transition: .3s;
+        &:after {
+          content: "";
+          background: rgba(255, 255, 255, 0.31);
+          visibility: visible;
+          position: absolute;
+          top: 3px;
+          left: 3px;
+          width: 24px;
+          height: 16px;
+          line-height: 16px;
+          box-sizing: border-box;
+          border-radius: 8px;
+          transition: .3s;
+          text-align: center;
+        }
+      }
+    }
+    &__txt {
+      font-size: 16px;
+      line-height: 24px;
+      color: #fff;
+      font-weight: $thin;
+      letter-spacing: .5px;
+    }
+  }
+  &-txt {
+    width: 100%;
+    position: relative;
+    &__input {
+      width: 100%;
+      height: 48px;
+      line-height: 48px;
+      position: relative;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 24px;
+      font-family: $helveticaNeue;
+      box-sizing: border-box;
+      font-weight: $thin;
+      font-style: italic;
+      font-size: 18px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.4);
+      padding: 0 16px;
+      margin-bottom: 15px;
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+        font-style: normal;
+      }
+      &:focus {
+        color: rgba(0, 0, 0, 0.4);
+        background: #fff;
+        outline: none;
+        color: #000;
+        &::placeholder {
+          color: rgba(0, 0, 0, 0.4);
+        }
+      }
+      &:disabled {
+        background: #EBEBEB;
+        border: 1px solid #909090;
+      }
+    }
+    &__icon{
+      width: 18px;
+      height: 18px;
+      background: url('../img/icons/icon-check.svg') center no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      display: none;
+      &__msg{
+        position: absolute;
+        right: 50%;
+        top: -100%;
+        transform: translateX(50%);
+        white-space: nowrap;
+        background-color: $redFail;
+        border: 1px solid #f00;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        color: #fff;
+        padding: 5px 10px;
+        display: none;
+      }
+    }
+
+    &--valid{
+      .label-txt__icon{
+        display: block;
+      }
+    }
+    &--invalid{
+      .label-txt__input{
+        color: $redFail;
+        &::placeholder {
+          color: $redFail;
+        }
+      }
+      .label-txt__icon{
+        width: 32px;
+        height: 32px;
+        top: 10px;
+        right: 10px;
+        background: url('../img/icons/icon-info.svg') center no-repeat;
+        background-size: contain;
+        cursor: pointer;
+        display: block;
+        &:hover{
+          .label-txt__icon__msg{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+//RESPONSIVENESS
+
+//MOBILE SIZE
+@media (max-width: 480px) {
+  .label {
+    &-check {
+      &__txt {
+        font-size: 12px;
+      }
+    }
+    &-txt {
+      &__input {
+        height: 42px;
+        line-height: 42px;
+        border-radius: 20px;
+        font-size: 14px;
+        padding: 0 12px;
+      }
+      &__icon{
+        top: 12px;
+        &__msg{
+          right: 0;
+          transform: translateX(0);
+          font-size: 10px;
+        }
+      }
+      &--invalid{
+        .label-txt__icon{
+          width: 24px;
+          height: 24px;
+          top: 10px;
+          right: 10px;
+        }
+      }
+    }
+  }
+}

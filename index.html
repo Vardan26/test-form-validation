@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/main.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="dist/favicon.png">
+</head>
+<body class="body">
+<form id="form" class="form">
+    <div class="form__blur"></div>
+    <a href="#" class="form__backTo">
+        <img src="src/assets/img/icons/arrow.svg">
+        ВЕРНУТЬСЯ
+    </a>
+    <div>
+    <div class="form__container">
+        <div class="form__icon" style="background-image: url('src/assets/img/maxresdefault.png')"></div>
+        <label class="label label-txt form__label-txt" for="">
+            <input id="phone"  type="text" autofocus  placeholder="Номер телефона" class="label-txt__input"/>
+            <span class="label-txt__icon">
+                <span class="label-txt__icon__msg"></span>
+            </span>
+        </label>
+        <label class="label label-txt form__label-txt" for="">
+            <input id="password"  type="password" placeholder="Пароль" class="label-txt__input"/>
+            <span class="label-txt__icon">
+                <span class="label-txt__icon__msg"></span>
+            </span>
+        </label>
+        <div class="form__actions">
+            <label class="label label-check form__actions__check" for="remember">
+                <span class="label-check__wrap">
+                    <input type="checkbox" id="remember" disabled/>
+                    <span class="label-check__wrap__span"></span>
+                </span>
+                <span class="label-check__txt">Запомнить</span>
+            </label>
+            <a href="#" class="form__actions__forgot">Забыл пароль</a>
+        </div>
+        <button class="form__btn-submit" disabled>ВОЙТИ</button>
+    </div>
+    </div>
+</form>
+
+
+<script src="dist/js/bundle.js"></script>
+</body>
+</html>
